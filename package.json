@@ -7,10 +7,12 @@
     "url": "git://github.com/jfromaniello/npm-preserve.git"
   },
   "main": "index.js",
-  "scripts": {
+  "bin": {
     "npm-preserve-cache": "./bin/cache",
     "npm-preserve-restore": "./bin/restore"
   },
-  "dependencies": {},
+  "dependencies": {
+    "json": "~9.0.3"
+  },
   "devDependencies": {}
 }

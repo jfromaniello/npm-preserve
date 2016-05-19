@@ -2,13 +2,28 @@
 
 set -e
 
-PROJECT=$1
+READLINK=$(type greadlink &>/dev/null && echo greadlink || echo readlink)
 
-DIRECTORY=$2
+MD5SUM=$(type gmd5sum &>/dev/null && echo gmd5sum || echo md5sum)
 
-VERSION=$(cat package.json npm-shrinkwrap.json  2&>/dev/null | md5sum | awk '{print $1}')
+MODULE_DIR="$( cd "$( dirname "$($READLINK -f ${BASH_SOURCE[0]})" )" && cd .. && pwd )"
+
+JSON_TOOL=$MODULE_DIR/node_modules/.bin/json
+
+PROJECT=$(cat package.json | $JSON_TOOL name)
+
+DIRECTORY=${1:-/tmp}
+
+DATA=$(cat package.json | $JSON_TOOL devDependencies dependencies && cat npm-shrinkwrap 2&>/dev/null || true)
+
+VERSION=$(echo $DATA | $MD5SUM | awk '{print $1}')
 
 FILE_NAME=$PROJECT-$VERSION.tar.gz
+
+if [ -f $DIRECTORY/$FILE_NAME ]; then
+    echo "$DIRECTORY/$FILE_NAME already exists"
+    exit 0
+fi
 
 tar -zcf $FILE_NAME node_modules
 
