@@ -1,0 +1,16 @@
+{
+  "name": "npm-preserve",
+  "description": "",
+  "version": "0.0.0",
+  "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "repository": {
+    "url": "git://github.com/jfromaniello/npm-preserve.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "npm-preserve-cache": "./bin/cache",
+    "npm-preserve-restore": "./bin/restore"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

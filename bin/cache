@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+PROJECT=$1
+
+DIRECTORY=$2
+
+VERSION=$(cat package.json npm-shrinkwrap.json  2&>/dev/null | md5sum | awk '{print $1}')
+
+FILE_NAME=$PROJECT-$VERSION.tar.gz
+
+tar -zcf $FILE_NAME node_modules
+
+mv $FILE_NAME $DIRECTORY/
