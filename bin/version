@@ -26,4 +26,4 @@ rm -rf $TMP_VERSION_FILE
 
 FILE_NAME=$PROJECT-$VERSION.tar.gz
 
-echo FILE_NAME
+echo $FILE_NAME
