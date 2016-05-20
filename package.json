@@ -8,9 +8,9 @@
   },
   "main": "index.js",
   "bin": {
-    "npm-preserve-cache": "./bin/cache",
-    "npm-preserve-restore": "./bin/restore",
-    "npm-preserve-version": "./bin/version"
+    "npm-preserve-cache":            "./bin/cache",
+    "npm-preserve-restore":          "./bin/restore",
+    "npm-preserve-version-filename": "./bin/version-filename"
   },
   "dependencies": {
     "json": "~9.0.3"
