@@ -14,7 +14,7 @@ PROJECT=$(cat package.json | $JSON_TOOL name)
 
 DIRECTORY=${1:-/tmp}
 
-DATA=$(cat package.json | $JSON_TOOL devDependencies dependencies && cat npm-shrinkwrap 2&>/dev/null || true)
+DATA=$(cat package.json | $JSON_TOOL devDependencies dependencies && cat npm-shrinkwrap.json 2&>/dev/null || true)
 
 VERSION=$(echo $DATA | $MD5SUM | awk '{print $1}')
 
