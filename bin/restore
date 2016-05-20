@@ -14,3 +14,5 @@ fi
 rm -rf node_modules
 
 tar -xzf $DIRECTORY/$FILE_NAME -C ./
+
+echo "restored from $DIRECTORY/$FILE_NAME"
