@@ -7,7 +7,7 @@ DIRECTORY=${1:-/tmp}
 FILE_NAME=$(npm-preserve-version-filename)
 
 if [ -f $DIRECTORY/$FILE_NAME ]; then
-    echo "$DIRECTORY/$FILE_NAME already exists"
+    echo "$DIRECTORY/$FILE_NAME"
     exit 0
 fi
 
@@ -15,4 +15,4 @@ tar -zcf $FILE_NAME node_modules
 
 mv $FILE_NAME $DIRECTORY/
 
-echo "cached in $DIRECTORY/$FILE_NAME"
+echo "$DIRECTORY/$FILE_NAME"
