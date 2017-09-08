@@ -20,6 +20,8 @@ cat package.json | $JSON_TOOL devDependencies dependencies >> $TMP_VERSION_FILE
 
 cat npm-shrinkwrap.json 2&>/dev/null >> $TMP_VERSION_FILE || true
 
+cat yarn.lock 2&>/dev/null >> $TMP_VERSION_FILE || true
+
 VERSION=$(cat $TMP_VERSION_FILE | $MD5SUM | awk '{print $1}')
 
 rm -rf $TMP_VERSION_FILE
