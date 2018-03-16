@@ -16,7 +16,7 @@ DIRECTORY=${1:-/tmp}
 
 TMP_VERSION_FILE=$(mktemp)
 
-cat package.json | $JSON_TOOL devDependencies dependencies >> $TMP_VERSION_FILE
+cat package.json | $JSON_TOOL devDependencies dependencies engines >> $TMP_VERSION_FILE
 
 cat npm-shrinkwrap.json 2&>/dev/null >> $TMP_VERSION_FILE || true
 
